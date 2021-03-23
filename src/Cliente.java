@@ -1,22 +1,37 @@
+import java.util.Date;
 
 public class Cliente {
 
 	private String Cpf;
 	private String Nome;
+	private Date   createdAt;
 	
-	public String GetNome() {
-		return this.Nome;
+	public String getCpf() {
+		return Cpf;
+	}
+
+	public void setCpf(String cpf) {
+		Cpf = cpf;
+	}
+
+	public String getNome() {
+		return Nome;
+	}
+
+	public void setNome(String nome) {
+		Nome = nome;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		Cliente cliente = (Cliente) obj;
+		if(cliente.getNome().equals(Nome) && cliente.getCpf().equals(Cpf))
+			return true;
+		return false;
 	}
 	
-	public void SetNome(String nome) {
-		this.Nome = nome;
-	}
-	
-	public String GetCpf() {
-		return this.Cpf;
-	}
-	
-	public void SetCpf(String cpf) {
-		this.Cpf = cpf;
+	@Override
+	public String toString() {
+		return "Nome: " + Nome + " | CPF: " + Cpf; 
 	}
 }

@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Principal {
 
@@ -7,6 +8,8 @@ public class Principal {
 		int opcao;
 		Scanner sc = new Scanner(System.in);
 		Cliente cliente = new Cliente();
+		ArrayList<Cliente> clientes = new ArrayList<Cliente>();
+		
 		
 		do {
 			System.out.println(" -- SISTEMA DE VENDAS -- \n"
@@ -19,11 +22,15 @@ public class Principal {
 			switch(opcao) {
 			case 1:
 				System.out.println("\n-- CADASTRAR CLIENTE --!\n"
-								 + "Digite o nome e o cpf do Cliente\n");
-				cliente.SetNome(sc.next());
-				cliente.SetCpf(sc.next());
+								 + "Digite o nome do Cliente\n");
+				cliente.setNome(sc.next());
+				
+				System.out.println("\nDigite o cpf do cliente\n");
+				cliente.setCpf(sc.next());
+				clientes.add(cliente);
 				break;
 			case 2:
+				
 				System.out.println("\n-- LISTAR CLIENTES --\n");
 				break;
 			case 0:
